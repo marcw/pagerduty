@@ -1,5 +1,16 @@
-// Package pagerduty is a client to the Pager Duty Integration API
-// described here: http://developer.pagerduty.com/documentation/integration/events
+/*
+Package pagerduty is a client to the Pager Duty Integration API.
+The API is described here: http://developer.pagerduty.com/documentation/integration/events
+
+    // Create a new "trigger" event
+    event := pagerduty.NewTriggerEvent(myKey, "test API")
+
+    // Customize the incident key. If not done, pager duty will assign one to you.
+    event.IncidentKey = "My Incident Key"
+
+    // Submit the event to pager duty's API
+    response, statusCode, err := pagerduty.Submit(event)
+*/
 package pagerduty
 
 import (
