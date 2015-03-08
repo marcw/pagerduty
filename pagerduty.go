@@ -84,7 +84,6 @@ func NewResponse(event *Event, resp *http.Response) (*Response, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
 
 	response := &Response{}
 	if err := json.Unmarshal(buffer, response); err != nil {
@@ -109,6 +108,9 @@ func Submit(event *Event) (response *Response, statusCode int, err error) {
 	if err != nil {
 		return
 	}
+
+	defer resp.Body.Close()
+
 	statusCode = resp.StatusCode
 	response, err = NewResponse(event, resp)
 	if err != nil {
