@@ -30,6 +30,7 @@ type Event struct {
 	Description string                 `json:"description"`
 	IncidentKey string                 `json:"incident_key"`
 	Details     map[string]interface{} `json:"details"`
+        Client      string                 `json:"client,omitempty"`
 }
 
 // See http://developer.pagerduty.com/documentation/integration/events
